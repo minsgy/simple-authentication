@@ -1,9 +1,10 @@
-import { UserLoginFormValues } from './form'
-
 /**
  * API response from /api/login
  */
-export type LoginRequest = UserLoginFormValues
+export interface LoginRequest {
+  email: string
+  password: string
+}
 export interface LoginResponse {
   accessToken: string
 }
