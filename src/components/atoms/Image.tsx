@@ -95,8 +95,8 @@ const ImageBase = styled('img')<ImageProps>`
   ${(props) => {
     const { width, height, mode, block } = props
     return css`
-      width: ${width ? width : '100%'};
-      height: ${height ? height : '100%'};
+      width: ${width ? `${width}px` : '100%'};
+      height: ${height ? `${height}px` : '100%'};
       object-fit: ${mode ?? 'fill'};
       display: ${block ? 'block' : 'inline-block'};
     `
