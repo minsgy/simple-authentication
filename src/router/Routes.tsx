@@ -8,15 +8,18 @@ import {
   UnauthorizedPage,
 } from '@/pages'
 import { RequireAuth } from './RequireAuth'
+import { PublicAuth } from './PublicAuth'
 
 export const Routes = () => {
   return (
     <ReactRouterRoutes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/reset">
-        <Route path="auth-request" element={<AuthCodeRequestPage />} />
-        <Route path="auth-confirm" element={<AuthCodeConfirmPage />} />
-        <Route path="password" element={<ResetPasswordPage />} />
+      <Route element={<PublicAuth />}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/reset">
+          <Route path="email" element={<AuthCodeRequestPage />} />
+          <Route path="confirm" element={<AuthCodeConfirmPage />} />
+          <Route path="password" element={<ResetPasswordPage />} />
+        </Route>
       </Route>
       <Route element={<RequireAuth />}>
         <Route path="/my" element={<MyProfilePage />} />

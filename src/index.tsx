@@ -13,6 +13,7 @@ const queryClient = new QueryClient({
       // @NOTE: 무분별한 refetch를 막기 위해 false로 설정
       refetchOnMount: false,
       refetchOnWindowFocus: false,
+      retry: false,
     },
   },
 })
