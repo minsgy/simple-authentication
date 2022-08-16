@@ -36,5 +36,5 @@ export const useForm = <T>({
     setIsLoading(false)
   }
 
-  return { errors, isLoading, setIsLoading, handleChange, handleSubmit }
+  return { errors, isLoading, forms, setIsLoading, handleChange, handleSubmit }
 }
