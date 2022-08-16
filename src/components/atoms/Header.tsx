@@ -24,12 +24,22 @@ const Wrapper = styled('div')`
   margin: 0 auto 16px;
   text-align: center;
 `
-const HeaderTitle = styled('h1')``
+const HeaderTitle = styled('h1')`
+  font-size: 22px;
+`
+
+const HeaderSubTitle = styled('h2')`
+  margin-top: 8px;
+  color: ${({ theme }) => theme.colors.GRAY_60};
+  font-size: 18px;
+  font-weight: normal;
+`
 
 const HeaderContent = styled('p')`
   margin-top: 8px;
-  font-size: 12px;
-  color: ${({ theme }) => theme.colors.GRAY_60};
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.GRAY_90};
 `
 Header.Title = HeaderTitle
+Header.SubTitle = HeaderSubTitle
 Header.Content = HeaderContent

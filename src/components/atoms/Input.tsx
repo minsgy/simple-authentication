@@ -31,9 +31,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 const Wrapper = styled('div')`
   display: flex;
   flex-direction: column;
+  margin-top: 16px;
 
-  & + & {
-    margin-top: 16px;
+  &:first-child {
+    margin-top: 0;
   }
 `
 

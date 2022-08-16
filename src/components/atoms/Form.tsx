@@ -25,10 +25,12 @@ export const Form = ({ handleSubmit, children, ...rest }: FormProps) => {
   )
 }
 
-const ErrorMsg = styled('span')`
+const ErrorMsg = styled('p')`
+  height: 16px;
   color: red;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
+  font-size: 11px;
+  margin-top: 4px;
+  line-height: 16px;
 `
 
 const FieldInput = styled(Input)`
