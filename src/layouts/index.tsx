@@ -14,6 +14,5 @@ const LayoutBase = styled('div')`
   max-width: ${LAYOUT_MAX_WIDTH}px;
   min-height: 100%;
   margin: 0 auto;
-  padding: 1em;
-  border-radius: 0.5em;
+  padding: 16px;
 `
