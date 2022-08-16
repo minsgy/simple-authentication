@@ -1,16 +1,25 @@
-import { toast, ToastPosition, ToastOptions } from 'react-toastify'
+import { BREAKPOINT } from '@/constants/breakpoint'
+import { toast, ToastOptions } from 'react-toastify'
+import { useWindowSize } from './useWindowSize'
 
 export const POSITION = toast.POSITION
 
 export const useToast = (options?: ToastOptions) => {
+  const size = useWindowSize()
+
+  // @NOTE: 반응형 처리
+  const position =
+    size?.width > BREAKPOINT.TABLET
+      ? toast.POSITION.TOP_RIGHT
+      : toast.POSITION.BOTTOM_CENTER
+
   const initialOptions = {
-    position: toast.POSITION.BOTTOM_CENTER as ToastPosition,
+    position,
     autoClose: 2000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: false,
-
     ...options,
   }
 
