@@ -1,8 +1,9 @@
 import { EMAIL_REGEX, NUMBER_REGEX } from '@/constants/regexp'
+import { isEmpty } from 'lodash'
 
 export const validate = {
   email: (email: string) => {
-    if (!email) {
+    if (isEmpty(email)) {
       return '이메일이 입력되지 않았습니다.'
     }
 
@@ -13,18 +14,18 @@ export const validate = {
     return ''
   },
   password: (password: string) => {
-    if (!password) {
+    if (isEmpty(password)) {
       return '비밀번호가 입력되지 않았습니다.'
     }
 
-    if (password.length < 6) {
-      return '비밀번호는 6자 이상이어야 합니다.'
+    if (password.length < 8) {
+      return '비밀번호는 8자 이상이어야 합니다.'
     }
 
     return ''
   },
   confirmCode: (number: string) => {
-    if (!number) {
+    if (isEmpty(number)) {
       return '인증번호가 입력되지 않았습니다.'
     }
 

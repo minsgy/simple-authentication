@@ -1,6 +1,7 @@
 import { CustomAxiosError } from '@/@types/api'
 import { API_POINT } from '@/constants/api'
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
+import { isEmpty } from 'lodash'
 
 export const axiosInstance: AxiosInstance = axios.create({
   baseURL: API_POINT,
@@ -11,7 +12,7 @@ export const axiosInstance: AxiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    if (!config?.headers) {
+    if (isEmpty(config.headers)) {
       throw new Error(
         `Expected 'config' and 'config.headers' not to be undefined`,
       )
