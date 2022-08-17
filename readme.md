@@ -181,3 +181,25 @@
    - 위 같은 라이브러리에서 사용하는 방법은 `useRef`를 통한 렌더링 최적화를 적용하고 있습니다.
    - 그렇지만 커다란 성능 이슈가 아니라고 생각해 `object` 형식의 데이터를 `onChange`를 통해 렌더링되도록 구현했습니다.
    - 합성 컴포넌트인 `Form`과 함께 활용하여 error 메시징 처리까지 구현했고 클라이언트 단에서 할 수 있는 `validate` 처리를 통해 불필요한 통신을 최소화 할 수 있었습니다.
+
+4. `requireAuth`와 `publicAuth`를 통한 자동 로그인 기능 및 비인증 페이지 이동 구현
+
+   ```javascript
+   <Route element={<PublicAuth />}>
+     <Route path="/login" element={<LoginPage />} />
+     <Route path="/reset">
+       <Route path="email" element={<AuthCodeRequestPage />} />
+       <Route path="confirm" element={<AuthCodeConfirmPage />} />
+       <Route path="password" element={<ResetPasswordPage />} />
+     </Route>
+   </Route>
+   <Route element={<RequireAuth />}>
+     <Route path="/my" element={<MyProfilePage />} />
+   </Route>
+   ```
+
+   - `access token`을 `localstorage`를 통해 저장하여 자동 로그인을 하게 됩니다. 이 과정에 있어서 `localstorage`에 토큰이 존재한다면 `publicAuth`를 통해 자동으로 프로필 페이지로 이동합니다.
+
+   - 만약 `access token`이 존재하지 않는데 강제로 프로필 페이지로 routing 하게 되면 `UnauthorizedPage`로 강제 redirect되게 됩니다. 이를 통해 인증이 필요한 라우터들을 이동하지 못합니다.
+
+   ![image](https://user-images.githubusercontent.com/60251579/185144503-2b17ac5b-c330-4a24-b704-5292523c9d95.png)
