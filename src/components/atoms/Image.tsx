@@ -36,7 +36,7 @@ export const Image = ({
   lazy,
   threshold = 0.3,
   src,
-  placeholder,
+  placeholder = 'https://via.placeholder.com/360x360',
   alt,
   width,
   height,
