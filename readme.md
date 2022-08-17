@@ -1,4 +1,5 @@
 ## 프로젝트 소개 및 URL
+
 ![image](https://user-images.githubusercontent.com/60251579/185141138-8ca09e67-95a7-4d4f-b599-ae0646fe3e15.png)
 
 - 로그인 과정과 이메일 인증 과정을 담은 프로젝트 입니다.
@@ -204,3 +205,17 @@
    - 만약 `access token`이 존재하지 않는데 강제로 프로필 페이지로 routing 하게 되면 `UnauthorizedPage`로 강제 redirect되게 됩니다. 이를 통해 인증이 필요한 라우터들을 이동하지 못합니다.
 
    ![image](https://user-images.githubusercontent.com/60251579/185144503-2b17ac5b-c330-4a24-b704-5292523c9d95.png)
+
+5. 비밀번호 재설정 페이지는 어떻게 관리할까?
+
+   - 인증 코드 요청 이후, 뒤로 가기 버튼을 누르면 다시 인증 코드로 이동되는게 아니라 메인으로 돌아가도록 시나리오를 생각했습니다.
+   - 왜냐하면 인증 부분에 있어서 TIL time이 이미 실행한만큼, 보여지는 timer와 일치되지 않는다고 생각했습니다. 그래서 라우팅을 할 때 `push`가 아닌 `replace`를 통해 history stack에 넣지 않는 방법으로 구현했습니다.
+
+   ```js
+      navigate('/reset/password', {
+         ...,
+        replace: true,
+      })
+   ```
+
+   - 그러나 구현하지 못한 점으로 새로고침에 의한 rerender를 막지못해 아쉬움이 남습니다.
