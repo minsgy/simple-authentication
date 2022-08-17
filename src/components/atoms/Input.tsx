@@ -21,6 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           placeholder={placeholder}
           id={name}
           name={name}
+          data-testid="input"
           {...rest}
         />
       </Wrapper>
