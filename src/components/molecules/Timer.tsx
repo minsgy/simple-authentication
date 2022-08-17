@@ -10,7 +10,7 @@ interface TimerProps {
 export const Timer = ({ timer, onFinish, ...rest }: TimerProps) => {
   const { minute, second } = useTimer(timer, onFinish)
   return (
-    <Wrapper {...rest}>
+    <Wrapper data-testid="timer" {...rest}>
       {minute}:{second}
     </Wrapper>
   )
