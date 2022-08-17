@@ -1,4 +1,5 @@
-## 프로젝트 소개
+## 프로젝트 소개 및 URL
+![image](https://user-images.githubusercontent.com/60251579/185141138-8ca09e67-95a7-4d4f-b599-ae0646fe3e15.png)
 
 - 로그인 과정과 이메일 인증 과정을 담은 프로젝트 입니다.
 - [URL](https://simple-authentication.vercel.app/login)을 통해 확인하실 수 있습니다.
