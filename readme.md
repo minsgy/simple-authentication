@@ -2,6 +2,7 @@
 
 - 로그인 과정과 이메일 인증 과정을 담은 프로젝트 입니다.
 - [URL](https://simple-authentication.vercel.app/login)을 통해 확인하실 수 있습니다.
+- `Desktop`과 `Mobile`을 고려하여 반응형 페이지를 구성하였습니다.
 
 ## 프로젝트 시작, Testing 실행
 
